@@ -31,6 +31,8 @@ public class ReCyclerGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtGananciasCalculadora;
 	private TextArea textArea;
+	private TextArea textArea_2;
+	private TextArea textArea_1;
 	
 	/**
 	 * Create the frame.
@@ -145,6 +147,14 @@ public class ReCyclerGUI extends JFrame {
 		panel_2.add(cbLugarColecta);
 		
 		JButton btnAnadirColecta = new JButton("A\u00F1adir");
+		btnAnadirColecta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Aplicacion aplicacion1 = new Aplicacion();
+				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cdFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
+				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
+				
+			}
+		});
 		btnAnadirColecta.setBounds(10, 168, 80, 23);
 		panel_2.add(btnAnadirColecta);
 		
@@ -160,7 +170,7 @@ public class ReCyclerGUI extends JFrame {
 		btnQuitarColecta.setBounds(100, 168, 81, 23);
 		panel_2.add(btnQuitarColecta);
 		
-		TextArea textArea_2 = new TextArea();
+		textArea_2 = new TextArea();
 		textArea_2.setBounds(10, 236, 171, 187);
 		panel_2.add(textArea_2);
 		
@@ -199,6 +209,13 @@ public class ReCyclerGUI extends JFrame {
 		panel_3.add(cbLugarVoluntariado);
 		
 		JButton btnAnadirVoluntariado = new JButton("Aniadir");
+		btnAnadirVoluntariado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Aplicacion aplicacion1 = new Aplicacion();
+				aplicacion1.setNewVoluntariado(String.valueOf(cbLugarVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbHoraVoluntariado.getSelectedItem()));
+				textArea_1.setText(String.valueOf(aplicacion1.getColecta()));
+			}
+		});
 		btnAnadirVoluntariado.setBounds(10, 165, 79, 23);
 		panel_3.add(btnAnadirVoluntariado);
 		
@@ -210,7 +227,7 @@ public class ReCyclerGUI extends JFrame {
 		lblVoluntariadosInscritos.setBounds(10, 216, 151, 14);
 		panel_3.add(lblVoluntariadosInscritos);
 		
-		TextArea textArea_1 = new TextArea();
+		textArea_1 = new TextArea();
 		textArea_1.setBounds(10, 236, 171, 187);
 		panel_3.add(textArea_1);
 
