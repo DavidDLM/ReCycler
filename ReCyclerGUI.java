@@ -258,6 +258,46 @@ public class ReCyclerGUI extends JFrame {
 				Aplicacion aplicacion1 = new Aplicacion();
 				aplicacion1.setNewVoluntariado(String.valueOf(cbLugarVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbHoraVoluntariado.getSelectedItem()));
 				textArea_1.setText(String.valueOf(aplicacion1.getColecta()));
+				
+				String hora = cbHoraVoluntariado.getSelectedItem().toString();
+				String fecha = cbFechaVoluntariado.getSelectedItem().toString();
+				String lugar = cbLugarVoluntariado.getSelectedItem().toString();
+				
+				Voluntariado volunt = new Voluntariado();
+				volunt.setHora(hora);
+				volunt.setFecha(fecha);
+				volunt.setLugar(lugar);
+				
+				ObjectOutputStream out = null;
+				try {
+					out = new ObjectOutputStream(new FileOutputStream("Voluntariado.txt"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					out.writeObject(volunt);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+					
+					
+				ObjectInputStream in = null;
+				try {
+					in = new ObjectInputStream(new FileInputStream("Voluntariado.txt"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					Voluntariado volunt2 = (Voluntariado) in.readObject();
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				JOptionPane.showMessageDialog(null, "Gracias por ser voluntario en " + volunt.getLugar() + "!");
 			}
 		});
 		btnAnadirVoluntariado.setBounds(10, 165, 79, 23);
