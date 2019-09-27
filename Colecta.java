@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Modelar Colectas futuras
  */
 
-public class Colecta{
+public class Colecta implements Serializable {
     private ArrayList<String> Material;
     private String Fecha;
     private String Lugar;
@@ -23,7 +23,7 @@ public class Colecta{
     }
 
     /**
-     * Función para cambiar Material de la Colecta 
+     * FunciÃ³n para cambiar Material de la Colecta 
      * @param index Indice de material a cambiar
      * @param Material Cadena con Material de la Colecta
      * No usar si el arraylist esta vacio
@@ -50,7 +50,7 @@ public class Colecta{
 
 
     /**
-     * Función para cambiar Fecha de la Colecta
+     * FunciÃ³n para cambiar Fecha de la Colecta
      * @param Fecha Cadena con Fecha de la Colecta
      */
     public void setFecha(String Fecha){
@@ -67,7 +67,7 @@ public class Colecta{
 
 
     /**
-     * Función para cambiar Lugar de la Colecta
+     * FunciÃ³n para cambiar Lugar de la Colecta
      * @param Lugar Cadena con Lugar de la Colecta
      */
     public void setLugar(String Lugar){
@@ -84,7 +84,7 @@ public class Colecta{
 
 
     /**
-     * Método que devuelve los datos de la colecta
+     * MÃ©todo que devuelve los datos de la colecta
      * @return Devuelve los datos de la colecta
      */
 
