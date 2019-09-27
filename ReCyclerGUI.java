@@ -132,7 +132,7 @@ public class ReCyclerGUI extends JFrame {
 		lblNewLabel_4.setBounds(10, 73, 46, 14);
 		panel_2.add(lblNewLabel_4);
 		
-		JComboBox cdFechaColecta = new JComboBox();
+		JComboBox cbFechaColecta = new JComboBox();
 		cdFechaColecta.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
 		cdFechaColecta.setBounds(10, 88, 171, 20);
 		panel_2.add(cdFechaColecta);
@@ -146,12 +146,56 @@ public class ReCyclerGUI extends JFrame {
 		cbLugarColecta.setBounds(10, 136, 171, 20);
 		panel_2.add(cbLugarColecta);
 		
-		JButton btnAnadirColecta = new JButton("A\u00F1adir");
+		JButton btnAnadirColecta = new JButton("Aniadir");
 		btnAnadirColecta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				Aplicacion aplicacion1 = new Aplicacion();
 				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cdFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
 				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
+			
+				String material = cbMaterialColecta.getSelectedItem().toString();
+				String fecha = cbFechaColecta.getSelectedItem().toString();
+				String lugar = cbLugarColecta.getSelectedItem().toString();
+				
+				Colecta colecta = new Colecta();
+				colecta.newMaterial(material);
+				colecta.setFecha(fecha);
+				colecta.setLugar(lugar);
+				
+				ObjectOutputStream out = null;
+				try {
+					out = new ObjectOutputStream(new FileOutputStream("Colecta.txt"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					out.writeObject(colecta);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+					
+					
+				ObjectInputStream in = null;
+				try {
+					in = new ObjectInputStream(new FileInputStream("Colecta.txt"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					Colecta colecta2 = (Colecta) in.readObject();
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				JOptionPane.showMessageDialog(null, "Inscrito a la colecta del " + colecta.getFecha() + "!");
+			}
+		});
+		btnAnadirColecta.setBounds(10, 168, 80, 23);
+		panel_2.add(btnAnadirColecta);
 				
 			}
 		});
