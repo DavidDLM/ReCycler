@@ -1,3 +1,4 @@
+import java.io.Serializable;
 /**
  * @author  Grupo Re-Cycler
  * @date 18-08-2019
