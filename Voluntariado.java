@@ -5,7 +5,7 @@
  * Modelar Voluntariado 
  */
 
-public class Voluntariado{
+public class Voluntariado implements Serializable {
     private String Hora;
     private String Fecha;
     private String Lugar;
