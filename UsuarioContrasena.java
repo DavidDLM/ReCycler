@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class UsuarioContraseña {
+public class UsuarioContrasena {
 
 	JFrame frame;
 	private JTextField textField;
@@ -21,7 +21,7 @@ public class UsuarioContraseña {
 	/**
 	 * Create the application.
 	 */
-	public UsuarioContraseña() {
+	public UsuarioContrasena() {
 		initialize();
 	}
 
@@ -80,7 +80,7 @@ public class UsuarioContraseña {
 					JOptionPane.showMessageDialog(null, "Ingresado. Recuerde actualizar sus datos en USUARIO");
 					ReCyclerGUI ventanaU = new ReCyclerGUI();
 					ventanaU.setVisible(true);
-					UsuarioContraseña.this.frame.setVisible(false);
+					UsuarioContrasena.this.frame.setVisible(false);
 				}else {
 					JOptionPane.showMessageDialog(null,"Usuario o contrasena invalido");
 				}
