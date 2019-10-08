@@ -23,6 +23,11 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
 
@@ -133,9 +138,9 @@ public class ReCyclerGUI extends JFrame {
 		panel_2.add(lblNewLabel_4);
 		
 		JComboBox cbFechaColecta = new JComboBox();
-		cdFechaColecta.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
-		cdFechaColecta.setBounds(10, 88, 171, 20);
-		panel_2.add(cdFechaColecta);
+		cbFechaColecta.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		cbFechaColecta.setBounds(10, 88, 171, 20);
+		panel_2.add(cbFechaColecta);
 		
 		JLabel lblLugar = new JLabel("Lugar:");
 		lblLugar.setBounds(10, 119, 46, 14);
@@ -150,7 +155,7 @@ public class ReCyclerGUI extends JFrame {
 		btnAnadirColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Aplicacion aplicacion1 = new Aplicacion();
-				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cdFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
+				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
 				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
 			
 				String material = cbMaterialColecta.getSelectedItem().toString();
@@ -196,9 +201,7 @@ public class ReCyclerGUI extends JFrame {
 		});
 		btnAnadirColecta.setBounds(10, 168, 80, 23);
 		panel_2.add(btnAnadirColecta);
-				
-			}
-		});
+
 		btnAnadirColecta.setBounds(10, 168, 80, 23);
 		panel_2.add(btnAnadirColecta);
 		
@@ -383,3 +386,4 @@ public class ReCyclerGUI extends JFrame {
 		
 	}
 }
+
