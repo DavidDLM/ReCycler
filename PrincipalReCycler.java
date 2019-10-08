@@ -12,7 +12,7 @@ public class PrincipalReCycler {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		UsuarioContraseña window = new UsuarioContraseña();
+		UsuarioContrasena window = new UsuarioContrasena();
 		window.frame.setVisible(true);
 		
 
