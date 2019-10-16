@@ -38,6 +38,7 @@ public class ReCyclerGUI extends JFrame {
 	private TextArea textArea;
 	private TextArea textArea_2;
 	private TextArea textArea_1;
+	private Aplicacion aplicacion1 = new Aplicacion();
 	
 	/**
 	 * Create the frame.
@@ -154,7 +155,6 @@ public class ReCyclerGUI extends JFrame {
 		JButton btnAnadirColecta = new JButton("Aniadir");
 		btnAnadirColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Aplicacion aplicacion1 = new Aplicacion();
 				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
 				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
 			
@@ -258,7 +258,6 @@ public class ReCyclerGUI extends JFrame {
 		JButton btnAnadirVoluntariado = new JButton("Aniadir");
 		btnAnadirVoluntariado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Aplicacion aplicacion1 = new Aplicacion();
 				aplicacion1.setNewVoluntariado(String.valueOf(cbLugarVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbHoraVoluntariado.getSelectedItem()));
 				textArea_1.setText(String.valueOf(aplicacion1.getVoluntariado()));
 				
