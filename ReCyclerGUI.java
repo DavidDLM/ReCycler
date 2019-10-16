@@ -30,6 +30,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ReCyclerGUI extends JFrame {
 
@@ -39,13 +41,17 @@ public class ReCyclerGUI extends JFrame {
 	private TextArea textArea_2;
 	private TextArea textArea_1;
 	private Aplicacion aplicacion1 = new Aplicacion();
+	private JTextField textField;
+	private JButton btnMostrar;
+	private JTextField textField_1;
+	private JButton btnQuitarVoluntariado;
 	
 	/**
 	 * Create the frame.
 	 */
 	public ReCyclerGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 824, 557);
+		setBounds(100, 100, 824, 658);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -121,7 +127,7 @@ public class ReCyclerGUI extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(204, 255, 153));
 		panel_2.setBorder(new TitledBorder(null, "Participar en una colecta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBounds(211, 74, 191, 433);
+		panel_2.setBounds(211, 74, 191, 534);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -155,8 +161,8 @@ public class ReCyclerGUI extends JFrame {
 		JButton btnAnadirColecta = new JButton("Aniadir");
 		btnAnadirColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
-				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
 			
 				String material = cbMaterialColecta.getSelectedItem().toString();
 				String fecha = cbFechaColecta.getSelectedItem().toString();
@@ -198,33 +204,102 @@ public class ReCyclerGUI extends JFrame {
 				
 				JOptionPane.showMessageDialog(null, "Inscrito a la colecta del " + colecta.getFecha() + "!");
 			}
+			
+			
+			
+			
 		});
-		btnAnadirColecta.setBounds(10, 168, 80, 23);
+		btnAnadirColecta.setBounds(10, 168, 66, 23);
 		panel_2.add(btnAnadirColecta);
 
 		btnAnadirColecta.setBounds(10, 168, 80, 23);
 		panel_2.add(btnAnadirColecta);
 		
 		JLabel lblNewLabel_5 = new JLabel("Colectas Inscritas:");
-		lblNewLabel_5.setBounds(10, 217, 171, 14);
+		lblNewLabel_5.setBounds(10, 317, 171, 14);
 		panel_2.add(lblNewLabel_5);
 		
 		JButton btnQuitarColecta = new JButton("Quitar");
 		btnQuitarColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (textField.getText().contentEquals("")) {
+					JOptionPane.showMessageDialog(null, "No se ingreso ningun valor");
+
+					
+				}
+				
+				else if(textField.getText().contentEquals("0")) {
+					JOptionPane.showMessageDialog(null, "Numero invalido");
+
+					
+				}
+				
+				else if(aplicacion1.getColecta().size() >= Integer.parseInt(textField.getText())   ) {
+				
+					
+				
+					
+					
+					aplicacion1.getColecta().remove(Integer.parseInt(textField.getText())-1);
+					JOptionPane.showMessageDialog(null, "La colecta a sido eliminada");
+
+					
+				
+
+						
+					}
+					
+				
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera del rango de colectas");
+
+
+					
+				}
+				
 			}
 		});
-		btnQuitarColecta.setBounds(100, 168, 81, 23);
+		btnQuitarColecta.setBounds(10, 279, 81, 23);
 		panel_2.add(btnQuitarColecta);
 		
 		textArea_2 = new TextArea();
-		textArea_2.setBounds(10, 236, 171, 187);
+		textArea_2.setBounds(10, 337, 171, 187);
 		panel_2.add(textArea_2);
+		
+		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9') e.consume();
+			}
+		});
+		textField.setBounds(10, 238, 121, 20);
+		panel_2.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Numero que Removera");
+		lblNewLabel.setBounds(10, 213, 171, 14);
+		panel_2.add(lblNewLabel);
+		
+		btnMostrar = new JButton("Mostrar");
+		btnMostrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
+
+			}
+		});
+		btnMostrar.setBounds(100, 167, 80, 23);
+		panel_2.add(btnMostrar);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(204, 255, 153));
 		panel_3.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ofrecerse como voluntario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_3.setBounds(412, 74, 191, 433);
+		panel_3.setBounds(412, 74, 191, 534);
 		contentPane.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -259,7 +334,6 @@ public class ReCyclerGUI extends JFrame {
 		btnAnadirVoluntariado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				aplicacion1.setNewVoluntariado(String.valueOf(cbLugarVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbHoraVoluntariado.getSelectedItem()));
-				textArea_1.setText(String.valueOf(aplicacion1.getVoluntariado()));
 				
 				String hora = cbHoraVoluntariado.getSelectedItem().toString();
 				String fecha = cbFechaVoluntariado.getSelectedItem().toString();
@@ -305,17 +379,76 @@ public class ReCyclerGUI extends JFrame {
 		btnAnadirVoluntariado.setBounds(10, 165, 79, 23);
 		panel_3.add(btnAnadirVoluntariado);
 		
-		JButton btnQuitarVoluntariado = new JButton("Quitar");
-		btnQuitarVoluntariado.setBounds(99, 165, 82, 23);
+		btnQuitarVoluntariado = new JButton("Quitar");
+		btnQuitarVoluntariado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				if (textField_1.getText().contentEquals("")) {
+					JOptionPane.showMessageDialog(null, "No se ingreso ningun valor");
+
+					
+				}
+				
+				else if(textField_1.getText().contentEquals("0")) {
+					JOptionPane.showMessageDialog(null, "Numero invalido");
+				}
+				
+				
+				else if(aplicacion1.getVoluntariado().size() >= Integer.parseInt(textField_1.getText())&& textField_1.getText() != "0" && textField_1.getText() !="" ) {
+					
+					aplicacion1.getVoluntariado().remove(Integer.parseInt(textField_1.getText())-1);
+					JOptionPane.showMessageDialog(null, "El voluntariado a sido eliminada");
+
+					
+				}
+				
+				else {
+					
+					JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera del rango de voluntariados");
+
+
+					
+				}
+			}
+		});
+		btnQuitarVoluntariado.setBounds(10, 283, 82, 23);
 		panel_3.add(btnQuitarVoluntariado);
 		
 		JLabel lblVoluntariadosInscritos = new JLabel("Voluntariados inscritos:");
-		lblVoluntariadosInscritos.setBounds(10, 216, 151, 14);
+		lblVoluntariadosInscritos.setBounds(10, 317, 151, 14);
 		panel_3.add(lblVoluntariadosInscritos);
 		
 		textArea_1 = new TextArea();
-		textArea_1.setBounds(10, 236, 171, 187);
+		textArea_1.setBounds(10, 337, 171, 187);
 		panel_3.add(textArea_1);
+		
+		JButton button = new JButton("Mostrar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea_1.setText(String.valueOf(aplicacion1.getVoluntariado()));
+
+			}
+		});
+		button.setBounds(99, 165, 80, 23);
+		panel_3.add(button);
+		
+		JLabel label_1 = new JLabel("Numero que Removera");
+		label_1.setBounds(10, 215, 171, 14);
+		panel_3.add(label_1);
+		
+		textField_1 = new JTextField();
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9') e.consume();
+			}
+		});
+		textField_1.setColumns(10);
+		textField_1.setBounds(10, 240, 121, 20);
+		panel_3.add(textField_1);
 
 		
 		JPanel panel_4 = new JPanel();
@@ -385,4 +518,5 @@ public class ReCyclerGUI extends JFrame {
 		
 	}
 }
+
 
