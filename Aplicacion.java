@@ -306,18 +306,18 @@ public class Aplicacion{
     			"24271360\n" + 
     			"\n" + 
     			"Ubicación\n" + 
-    			"Kilómetro 8 Carretera al Atllántico, Zona 18 \n" + 
+    			"Kilómetro 8 Carretera al Atlantico, Zona 18 \n" + 
     			"\n" + 
     			"**Recicladora La Joya**\n" + 
     			"\n" + 
     			"Caracteristica principal:\n" + 
-    			"Reciben papel, cartón, cartulina, latas, plástico\n" + 
+    			"Reciben papel, cartón, cartulina, latas, plastico\n" + 
     			"\n" + 
     			"Telefono:\n" + 
     			"24481286|24482178\n" + 
     			"\n" + 
     			"Ubicacion:\n" + 
-    			"1era. Calle 1-85 Colonia Los Álamos zona 6 de San Miguel Petapa\n" + 
+    			"1era. Calle 1-85 Colonia Los Alamos zona 6 de San Miguel Petapa\n" + 
     			"");
     	
     }
