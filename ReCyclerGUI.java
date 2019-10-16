@@ -155,7 +155,7 @@ public class ReCyclerGUI extends JFrame {
 		btnAnadirColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Aplicacion aplicacion1 = new Aplicacion();
-				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cdFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
+				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
 				textArea_2.setText(String.valueOf(aplicacion1.getColecta()));
 			
 				String material = cbMaterialColecta.getSelectedItem().toString();
