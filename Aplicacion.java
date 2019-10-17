@@ -411,7 +411,7 @@ public class Aplicacion{
 		return mensaje;
 		}
 	
-	public void Escribir()
+	/*public void Escribir()
 	{
 		String m = "";
 		for(String l: usuarios)
@@ -419,7 +419,7 @@ public class Aplicacion{
 		for(String l: contrasenas)
 			m+= l.toString();
 		es = new Archivos(m);
-	}
+	}*/
 	public String MostrarLista() {
 		String m = "";
 		for(int i = 0 ; i < usuarios.size(); i++) {
