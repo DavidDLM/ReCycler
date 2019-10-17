@@ -17,6 +17,7 @@ public class UsuarioContrasena {
 	JFrame frame;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private Aplicacion operador = new Aplicacion();
 
 	/**
 	 * Create the application.
@@ -76,9 +77,9 @@ public class UsuarioContrasena {
 		JButton btnIngresar = new JButton("Ingresar");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (textField.getText().equals("admin") && passwordField.getText().equals("admin")){
+				if (String.valueOf(textField.getText()).equals(operador.Usuarios(String.valueOf(textField.getText()))) && String.valueOf(passwordField.getText()).equals(operador.Contrasenas(String.valueOf(passwordField.getText())))){
 					JOptionPane.showMessageDialog(null, "Ingresado. Recuerde actualizar sus datos en USUARIO");
-					MenuGUI ventanaU = new MenuGUI();
+					ReCyclerGUI ventanaU = new ReCyclerGUI();
 					ventanaU.setVisible(true);
 					UsuarioContrasena.this.frame.setVisible(false);
 				}else {
