@@ -16,6 +16,9 @@ public class Aplicacion{
     static Usuario usuario;
     static ArrayList<Voluntariado> voluntariados;
     static ArrayList<Colecta> colectas;
+    static ArrayList<String> usuarios = new ArrayList<String>();
+	static ArrayList<String> contrasenas = new ArrayList<String>();
+	private Archivos es;
 
     public Aplicacion (){
         empresas = new ArrayList<Empresa>();
@@ -362,6 +365,70 @@ public class Aplicacion{
     			"biodegradables.");
     	
     }
+     public void IngresarUsuario(String x){
+    	usuarios.add(x);
+    }
+    public void IngresarContrasena(String x) {
+    	contrasenas.add(x);
+    }
+
+	public ArrayList<String> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(ArrayList<String> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public ArrayList<String> getContrasenas() {
+		return contrasenas;
+	}
+
+	public void setContrasenas(ArrayList<String> contrasenas) {
+		this.contrasenas = contrasenas;
+	}
+	public String Usuarios(String x) {
+		String mensaje ="";
+		for(String j: usuarios) {
+			mensaje += j;
+		}
+		if(mensaje.contains(x)) {
+			mensaje = x;
+		}
+		return mensaje;
+		}
+		
+	
+	
+	public String Contrasenas(String x) {
+		String mensaje ="";
+		for(String j: contrasenas) {
+			mensaje += j;
+		}
+		if(mensaje.contains(x)) {
+			mensaje = x;
+		}
+		return mensaje;
+		}
+	
+	public void Escribir()
+	{
+		String m = "";
+		for(String l: usuarios)
+			m+= l.toString();
+		for(String l: contrasenas)
+			m+= l.toString();
+		es = new Archivos(m);
+	}
+	public String MostrarLista() {
+		String m = "";
+		for(int i = 0 ; i < usuarios.size(); i++) {
+			m += usuarios.get(i);
+			
+		}
+		return m;
+	}
+
 
 
 }
