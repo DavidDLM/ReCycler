@@ -100,34 +100,9 @@ public class OfrecerseVoluntario extends JFrame {
 				volunt.setFecha(fecha);
 				volunt.setLugar(lugar);
 				
-				ObjectOutputStream out = null;
-				try {
-					out = new ObjectOutputStream(new FileOutputStream("Voluntariado.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					out.writeObject(volunt);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-					
-					
-				ObjectInputStream in = null;
-				try {
-					in = new ObjectInputStream(new FileInputStream("Voluntariado.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					Voluntariado volunt2 = (Voluntariado) in.readObject();
-				} catch (ClassNotFoundException | IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Aplicacion.voluntariados.add(volunt);
+				Persistencia persistencia  = new Persistencia();
+				persistencia.escribirVoluntariado(Aplicacion.voluntariados);
 				
 				JOptionPane.showMessageDialog(null, "Gracias por ser voluntario en " + volunt.getLugar() + "!");
 			}
@@ -221,3 +196,4 @@ public class OfrecerseVoluntario extends JFrame {
 	}
 
 }
+
