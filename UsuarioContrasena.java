@@ -79,7 +79,7 @@ public class UsuarioContrasena {
 			public void actionPerformed(ActionEvent e) {
 				if (String.valueOf(textField.getText()).equals(operador.Usuarios(String.valueOf(textField.getText()))) && String.valueOf(passwordField.getText()).equals(operador.Contrasenas(String.valueOf(passwordField.getText())))){
 					JOptionPane.showMessageDialog(null, "Ingresado. Recuerde actualizar sus datos en USUARIO");
-					ReCyclerGUI ventanaU = new ReCyclerGUI();
+					MenuGUI ventanaU = new MenuGUI();
 					ventanaU.setVisible(true);
 					UsuarioContrasena.this.frame.setVisible(false);
 				}else {
