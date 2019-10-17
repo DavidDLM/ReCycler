@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * Declarar las clases como un Arraylist
  */
 public class Aplicacion{
-    private ArrayList<Empresa> empresas;
-    private Usuario usuario;
-    private ArrayList<Voluntariado> voluntariados;
-    private ArrayList<Colecta> colectas;
+    static ArrayList<Empresa> empresas;
+    static Usuario usuario;
+    static ArrayList<Voluntariado> voluntariados;
+    static ArrayList<Colecta> colectas;
 
     public Aplicacion (){
         empresas = new ArrayList<Empresa>();
