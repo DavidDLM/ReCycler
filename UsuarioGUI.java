@@ -18,6 +18,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -29,7 +31,9 @@ public class UsuarioGUI extends JFrame {
 	public static JTextField tfCorreo;
 	public static JTextField tfDireccion;
 	public static JTextField tfTelefono;
-
+	
+	static List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+	
 	/**
 	 * Create the frame.
 	 */
@@ -103,6 +107,7 @@ public class UsuarioGUI extends JFrame {
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				
 			}
 		});
 		btnX.setBounds(135, 242, 55, 23);
@@ -120,35 +125,12 @@ public class UsuarioGUI extends JFrame {
 				u1.setCorreo(usuario1.Correo());
 				u1.setTelefono(usuario1.Telefono());
 				u1.setDireccion(usuario1.Direccion());
+				listaUsuarios.add(u1);
 				
-				ObjectOutputStream out = null;
-				try {
-					out = new ObjectOutputStream(new FileOutputStream("Datos.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					out.writeObject(u1);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-					
-					
-				ObjectInputStream in = null;
-				try {
-					in = new ObjectInputStream(new FileInputStream("Datos.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					Usuario u2 = (Usuario) in.readObject();
-				} catch (ClassNotFoundException | IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Persistencia persistencia = new Persistencia();
+				persistencia.escribirArchivo(listaUsuarios);
+				
+				
 				
 				JOptionPane.showMessageDialog(null, "Sus datos de usuario han sido actualizados!");
 				
