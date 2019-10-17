@@ -5,12 +5,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Registro extends JFrame {
@@ -20,6 +23,9 @@ public class Registro extends JFrame {
 	private JPasswordField pfContrasena;
 	private JPasswordField pfContrasenaV;
 	private JTextField tfCorreo;
+	private Aplicacion op = new Aplicacion();
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
 
 	/**
 	 * Create the frame.
@@ -67,6 +73,22 @@ public class Registro extends JFrame {
 		contentPane.add(pfContrasenaV);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (String.valueOf(pfContrasena.getText()).equals(String.valueOf(pfContrasenaV.getText()))){
+					JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+					op.IngresarUsuario(String.valueOf(tfUsuario.getText()));
+					op.IngresarContrasena(String.valueOf(pfContrasena.getText()));;
+					UsuarioContrasena ventanaU = new UsuarioContrasena();
+					ventanaU.setVisible();
+					Registro.this.setVisible(false);
+					
+				}else {
+					JOptionPane.showMessageDialog(null,"Ingrese la contrasena correctamente");
+				}
+				
+			}
+		});
 		btnAceptar.setBounds(182, 260, 89, 23);
 		contentPane.add(btnAceptar);
 		
@@ -95,5 +117,19 @@ public class Registro extends JFrame {
 		contentPane.add(btnCancelar);
 		
 	}
+	public void IngresarUsuario(String x, String y){
+    	Usuario user = new Usuario(x,y);
+    	usuarios.add(user);
+    }
+		
+	
 
+		
+
+
+	
+
+
+
+	
 }
