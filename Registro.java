@@ -80,7 +80,7 @@ public class Registro extends JFrame {
 					op.IngresarUsuario(String.valueOf(tfUsuario.getText()));
 					op.IngresarContrasena(String.valueOf(pfContrasena.getText()));;
 					UsuarioContrasena ventanaU = new UsuarioContrasena();
-					ventanaU.setVisible();
+					ventanaU.frame.setVisible(true);
 					Registro.this.setVisible(false);
 					
 				}else {
