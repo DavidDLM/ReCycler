@@ -18,7 +18,7 @@ public class Aplicacion{
     static ArrayList<Colecta> colectas;
     static ArrayList<String> usuarios = new ArrayList<String>();
 	static ArrayList<String> contrasenas = new ArrayList<String>();
-	private Archivos es;
+	/*private Archivos es;*/
 
     public Aplicacion (){
         empresas = new ArrayList<Empresa>();
