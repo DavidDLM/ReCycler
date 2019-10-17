@@ -3,31 +3,71 @@
 */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Persistencia {
 	
-	public Persistencia(Usuario u) throws FileNotFoundException, IOException, ClassNotFoundException {
-
-		Usuario u1 = new Usuario(null,null,null,null,null,null);
-		DatosUsuario usuario1 = new DatosUsuario();
+	public Persistencia() {
+		
 	
-		u1.setUserName(usuario1.UserName());
-		u1.setContrasena(usuario1.Contrasena());
-		u1.setCorreo(usuario1.Correo());
-		u1.setTelefono(usuario1.Telefono());
-		u1.setDireccion(usuario1.Direccion());
-	
-		//ObjectOutputStream
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Datos.txt"));
-		out.writeObject(u1);
-			
-			
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream("Datos.txt"));
-		Usuario u2 = (Usuario) in.readObject();
 	}
+
+	public void escribirArchivo(List<Usuario> listaUsuarios) {
+		FileWriter fichero  = null;
+		PrintWriter pw = null;
+		try {
+			fichero = new FileWriter("Usuarios.txt",true);
+			pw = new PrintWriter(fichero);
+			String linea = "";
+			for(Usuario user:listaUsuarios) {
+				linea = "Usuario: " + user.getUserName() +"| " + user.getNombre() + "," + user.getContrasena() +","+user.getTelefono() +
+						"," +user.getDireccion()+","+user.getCorreo();
+				pw.println(linea);
+						}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fichero.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public void escribirVoluntariado(List<Voluntariado> listaVoluntariado) {
+		
+		FileWriter fichero  = null;
+		PrintWriter pw = null;
+		try {
+			fichero = new FileWriter("BaseVoluntariados.txt",true);
+			pw = new PrintWriter(fichero);
+			String linea = "";
+			for(Voluntariado vol: listaVoluntariado) {
+				linea = "Voluntariado: " + vol.getFecha() +"| "+ vol.getHora() + ","+vol.getLugar();
+				pw.println(linea);
+						}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fichero.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 			
 }
