@@ -117,19 +117,9 @@ public class Registro extends JFrame {
 		contentPane.add(btnCancelar);
 		
 	}
-	public void IngresarUsuario(String x, String y){
+	/*public void IngresarUsuario(String x, String y){
     	Usuario user = new Usuario(x,y);
     	usuarios.add(user);
-    }
-		
-	
-
-		
-
-
-	
-
-
-
-	
+    }*/
+			
 }
