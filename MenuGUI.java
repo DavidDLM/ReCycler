@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class MenuGUI extends JFrame {
 
@@ -21,16 +21,17 @@ public class MenuGUI extends JFrame {
 	 */
 	public MenuGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 314);
+		setBounds(100, 100, 450, 323);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(102, 255, 102));
+		contentPane.setBackground(new Color(0, 102, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel pnlMenu = new JPanel();
-		pnlMenu.setBorder(new TitledBorder(new LineBorder(new Color(51, 255, 0)), "Menu", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 255, 51)));
-		pnlMenu.setBounds(10, 11, 414, 253);
+		pnlMenu.setBackground(new Color(102, 153, 51));
+		pnlMenu.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 0), 2), "Menu", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 0)));
+		pnlMenu.setBounds(10, 11, 414, 262);
 		contentPane.add(pnlMenu);
 		pnlMenu.setLayout(null);
 		
@@ -43,8 +44,8 @@ public class MenuGUI extends JFrame {
 				
 			}
 		});
-		btnCalculadora.setBackground(new Color(153, 255, 102));
-		btnCalculadora.setBounds(10, 26, 394, 23);
+		btnCalculadora.setBackground(SystemColor.controlHighlight);
+		btnCalculadora.setBounds(10, 26, 394, 47);
 		pnlMenu.add(btnCalculadora);
 		
 		JButton btnParticipaEnUn = new JButton("\u00A1Participa en un voluntariado!");
@@ -56,8 +57,8 @@ public class MenuGUI extends JFrame {
 			}
 			
 		});
-		btnParticipaEnUn.setBackground(new Color(153, 255, 102));
-		btnParticipaEnUn.setBounds(10, 61, 394, 60);
+		btnParticipaEnUn.setBackground(SystemColor.controlHighlight);
+		btnParticipaEnUn.setBounds(10, 84, 394, 47);
 		pnlMenu.add(btnParticipaEnUn);
 		
 		JButton btnparticipaEnUna = new JButton("\u00A1Participa en una colecta!");
@@ -68,8 +69,8 @@ public class MenuGUI extends JFrame {
 				colecta.setVisible(true);
 			}
 		});
-		btnparticipaEnUna.setBackground(new Color(153, 255, 102));
-		btnparticipaEnUna.setBounds(10, 132, 394, 60);
+		btnparticipaEnUna.setBackground(SystemColor.controlHighlight);
+		btnparticipaEnUna.setBounds(10, 142, 394, 47);
 		pnlMenu.add(btnparticipaEnUna);
 		
 		JButton btnInformacionYConfiguracion = new JButton("Informacion y configuracion");
@@ -80,8 +81,8 @@ public class MenuGUI extends JFrame {
 				info.setVisible(true);
 			}
 		});
-		btnInformacionYConfiguracion.setBackground(new Color(153, 255, 102));
-		btnInformacionYConfiguracion.setBounds(10, 203, 394, 39);
+		btnInformacionYConfiguracion.setBackground(SystemColor.controlHighlight);
+		btnInformacionYConfiguracion.setBounds(10, 200, 394, 47);
 		pnlMenu.add(btnInformacionYConfiguracion);
 	}
 
