@@ -68,6 +68,31 @@ public class Persistencia {
 		}
 		
 	}
+	public void escribirColecta(List<Colecta> listaColectas) {
+		
+		FileWriter fichero  = null;
+		PrintWriter pw = null;
+		try {
+			fichero = new FileWriter("BaseColectas.txt",true);
+			pw = new PrintWriter(fichero);
+			String linea = "";
+			for(Colecta col: listaColectas) {
+				linea = "Colecta: " + col.getFecha() +  ", "+col.getLugar();
+				pw.println(linea);
+						}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fichero.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 	
 			
 }
