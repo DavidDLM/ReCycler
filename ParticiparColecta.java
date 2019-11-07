@@ -11,6 +11,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -31,6 +33,8 @@ public class ParticiparColecta extends JFrame {
 	private Aplicacion aplicacion1 = new Aplicacion();
 	private JButton btnMostrar;
 	private JComboBox comboBox;
+	
+	static List<Colecta> listaColectas = new ArrayList<Colecta>();
 	/**
 	 * Create the frame.
 	 */
@@ -98,35 +102,10 @@ public class ParticiparColecta extends JFrame {
 					colecta.newMaterial(material);
 					colecta.setFecha(fecha);
 					colecta.setLugar(lugar);
+					listaColectas.add(colecta);
 					
-					ObjectOutputStream out = null;
-					try {
-						out = new ObjectOutputStream(new FileOutputStream("Colecta.txt"));
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						out.writeObject(colecta);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-						
-						
-					ObjectInputStream in = null;
-					try {
-						in = new ObjectInputStream(new FileInputStream("Colecta.txt"));
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						Colecta colecta2 = (Colecta) in.readObject();
-					} catch (ClassNotFoundException | IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					Persistencia persistencia = new Persistencia();
+					persistencia.escribirColecta(listaColectas);
 					
 					JOptionPane.showMessageDialog(null, "Inscrito a la colecta del " + colecta.getFecha() + "!");
 				}
