@@ -29,14 +29,14 @@ public class ParticiparColecta extends JFrame {
 	private JPanel contentPane;
 	private TextArea textArea_2;
 	private Aplicacion aplicacion1 = new Aplicacion();
-	private JTextField textField;
 	private JButton btnMostrar;
+	private JComboBox comboBox;
 	/**
 	 * Create the frame.
 	 */
 	public ParticiparColecta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 316);
+		setBounds(100, 100, 450, 327);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -80,50 +80,62 @@ public class ParticiparColecta extends JFrame {
 		btnAnadirColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
-			
-				String material = cbMaterialColecta.getSelectedItem().toString();
-				String fecha = cbFechaColecta.getSelectedItem().toString();
-				String lugar = cbLugarColecta.getSelectedItem().toString();
-				
-				Colecta colecta = new Colecta();
-				colecta.newMaterial(material);
-				colecta.setFecha(fecha);
-				colecta.setLugar(lugar);
-				
-				ObjectOutputStream out = null;
-				try {
-					out = new ObjectOutputStream(new FileOutputStream("Colecta.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					out.writeObject(colecta);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				if (aplicacion1.getFechas().indexOf(String.valueOf(cbFechaColecta.getSelectedItem()))==-1) {
+					aplicacion1.setNewColecta(String.valueOf(cbMaterialColecta.getSelectedItem()), String.valueOf(cbFechaColecta.getSelectedItem()), String.valueOf(cbLugarColecta.getSelectedItem()));
+					aplicacion1.getFechas().add(String.valueOf(cbFechaColecta.getSelectedItem()));
 					
+				//	for (int x=0; x<aplicacion1.getColecta().size();x++) {
+					//	if( aplicacion1.getColecta().get(x).getFecha().indexOf(str))
+							
+				//		}
+				//	}
+
+					String material = cbMaterialColecta.getSelectedItem().toString();
+					String fecha = cbFechaColecta.getSelectedItem().toString();
+					String lugar = cbLugarColecta.getSelectedItem().toString();
 					
-				ObjectInputStream in = null;
-				try {
-					in = new ObjectInputStream(new FileInputStream("Colecta.txt"));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					Colecta colecta = new Colecta();
+					colecta.newMaterial(material);
+					colecta.setFecha(fecha);
+					colecta.setLugar(lugar);
+					
+					ObjectOutputStream out = null;
+					try {
+						out = new ObjectOutputStream(new FileOutputStream("Colecta.txt"));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					try {
+						out.writeObject(colecta);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+						
+						
+					ObjectInputStream in = null;
+					try {
+						in = new ObjectInputStream(new FileInputStream("Colecta.txt"));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					try {
+						Colecta colecta2 = (Colecta) in.readObject();
+					} catch (ClassNotFoundException | IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					JOptionPane.showMessageDialog(null, "Inscrito a la colecta del " + colecta.getFecha() + "!");
 				}
-				try {
-					Colecta colecta2 = (Colecta) in.readObject();
-				} catch (ClassNotFoundException | IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					else {
+						JOptionPane.showMessageDialog(null, "Ya se encuentra en una actividad ese dia");
+
+						
+					}
 				}
-				
-				JOptionPane.showMessageDialog(null, "Inscrito a la colecta del " + colecta.getFecha() + "!");
-			}
-			
-			
 			
 			
 		});
@@ -140,69 +152,42 @@ public class ParticiparColecta extends JFrame {
 		btnQuitarColecta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if (textField.getText().contentEquals("")) {
-					JOptionPane.showMessageDialog(null, "No se ingreso ningun valor");
+				
+				for (int x=0; x<aplicacion1.getColecta().size();x++) {
+				if( aplicacion1.getColecta().get(x).getFecha().indexOf(String.valueOf(comboBox.getSelectedItem()))!=-1) {
+					 aplicacion1.getColecta().remove(aplicacion1.getColecta().get(x).getFecha().indexOf(String.valueOf(comboBox.getSelectedItem())));
+					 aplicacion1.getFechas().remove(String.valueOf(comboBox.getSelectedItem()));
+						JOptionPane.showMessageDialog(null, "A sido eliminada de ese dia la actividad");
 
+					
 					
 				}
-				
-				else if(textField.getText().contentEquals("0")) {
-					JOptionPane.showMessageDialog(null, "Numero invalido");
-
-					
-				}
-				
-				else if(aplicacion1.getColecta().size() >= Integer.parseInt(textField.getText())   ) {
-				
-					
-				
-					
-					
-					aplicacion1.getColecta().remove(Integer.parseInt(textField.getText())-1);
-					JOptionPane.showMessageDialog(null, "La colecta a sido eliminada");
-
-					
-				
-
-						
-					}
-					
-				
-				
 				else {
-					
-					JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera del rango de colectas");
-
+					JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
 
 					
 				}
+				
+				
+			}
+
+
+				
 				
 			}
 		});
-		btnQuitarColecta.setBounds(141, 237, 81, 23);
+		btnQuitarColecta.setBounds(170, 238, 81, 23);
 		pnlColecta.add(btnQuitarColecta);
 		
 		textArea_2 = new TextArea();
 		textArea_2.setBounds(225, 24, 171, 187);
 		pnlColecta.add(textArea_2);
 		
-		textField = new JTextField();
-		textField.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if(c<'0'|| c>'9') e.consume();
-			}
-		});
-		textField.setBounds(10, 238, 121, 20);
-		pnlColecta.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("Numero que Removera");
+		JLabel lblNewLabel = new JLabel("Fecha a remover");
 		lblNewLabel.setBounds(10, 213, 171, 14);
 		pnlColecta.add(lblNewLabel);
 		
-		btnMostrar = new JButton("Mostrar");
+		btnMostrar = new JButton("Actualizar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -225,6 +210,11 @@ public class ParticiparColecta extends JFrame {
 		});
 		btnSalir.setBounds(325, 237, 89, 23);
 		pnlColecta.add(btnSalir);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		comboBox.setBounds(10, 238, 145, 20);
+		pnlColecta.add(comboBox);
 		
 		
 	}
