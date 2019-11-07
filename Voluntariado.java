@@ -77,6 +77,6 @@ public class Voluntariado implements Serializable {
     public String toString(){
         return "Lugar : " + Lugar + "  "
             + "Fecha : " + Fecha + "  "
-            + "Hora : " + Hora ;
+            + "Hora : " + Hora +"\n";
     }
     }
