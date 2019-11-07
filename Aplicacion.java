@@ -18,6 +18,8 @@ public class Aplicacion{
     static ArrayList<Colecta> colectas;
     static ArrayList<String> usuarios = new ArrayList<String>();
 	static ArrayList<String> contrasenas = new ArrayList<String>();
+    static ArrayList <String> fechas;
+    static ArrayList <String> fechascolectas;
 	/*private Archivos es;*/
 
     public Aplicacion (){
@@ -25,6 +27,8 @@ public class Aplicacion{
         usuario = new Usuario();
         voluntariados = new ArrayList<Voluntariado>();
         colectas = new ArrayList<Colecta>();
+        fechas =  new ArrayList <String>();
+        fechascolectas = new ArrayList <String>();
     }
 
     /**
@@ -58,6 +62,24 @@ public class Aplicacion{
     public ArrayList<Colecta> getColecta(){
         return colectas;
         }
+    public ArrayList<String> getFechas() {
+		return fechas;
+	}
+
+	public void setFechas(ArrayList<String> fechas) {
+		this.fechas = fechas;
+	}
+	
+	
+
+	public ArrayList<String> getFechascolectas() {
+		return fechascolectas;
+	}
+
+	public void setFechascolectas(ArrayList<String> fechascolectas) {
+		this.fechascolectas = fechascolectas;
+	}
+
 
     /**
      * MÃ©todo para agregar nueva empresa al ArrayList de empress.
