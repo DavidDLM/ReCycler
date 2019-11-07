@@ -35,8 +35,8 @@ public class OfrecerseVoluntario extends JFrame {
 	private Aplicacion aplicacion1 = new Aplicacion();
 	private JTextField textField;
 	private JButton btnMostrar;
-	private JTextField textField_1;
 	private JButton btnQuitarVoluntariado;
+	private JComboBox comboBox;
 
 
 	/**
@@ -44,7 +44,7 @@ public class OfrecerseVoluntario extends JFrame {
 	 */
 	public OfrecerseVoluntario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 399, 336);
+		setBounds(100, 100, 424, 336);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 250, 102));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,7 +89,21 @@ public class OfrecerseVoluntario extends JFrame {
 		JButton btnAnadirVoluntariado = new JButton("Aniadir");
 		btnAnadirVoluntariado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				aplicacion1.setNewVoluntariado(String.valueOf(cbLugarVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbHoraVoluntariado.getSelectedItem()));
+				
+				
+				if (aplicacion1.getFechascolectas().indexOf(String.valueOf(cbFechaVoluntariado.getSelectedItem()))==-1) {
+					aplicacion1.setNewColecta(String.valueOf(cbHoraVoluntariado.getSelectedItem()), String.valueOf(cbFechaVoluntariado.getSelectedItem()), String.valueOf(cbLugarVoluntariado.getSelectedItem()));
+					aplicacion1.getFechascolectas().add(String.valueOf(cbFechaVoluntariado.getSelectedItem()));
+					
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				String hora = cbHoraVoluntariado.getSelectedItem().toString();
 				String fecha = cbFechaVoluntariado.getSelectedItem().toString();
@@ -106,7 +120,14 @@ public class OfrecerseVoluntario extends JFrame {
 				
 				JOptionPane.showMessageDialog(null, "Gracias por ser voluntario en " + volunt.getLugar() + "!");
 			}
+				else {
+					JOptionPane.showMessageDialog(null, "Ya se encuentra en una actividad ese dia");
+
+					
+				}
+			}
 		});
+		
 		btnAnadirVoluntariado.setBounds(10, 165, 79, 23);
 		panel_3.add(btnAnadirVoluntariado);
 		
@@ -115,37 +136,29 @@ public class OfrecerseVoluntario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				
-				if (textField_1.getText().contentEquals("")) {
-					JOptionPane.showMessageDialog(null, "No se ingreso ningun valor");
+				for (int x=0; x<aplicacion1.getVoluntariado().size();x++) {
+					if( aplicacion1.getVoluntariado().get(x).getFecha().indexOf(String.valueOf(comboBox.getSelectedItem()))!=-1) {
+						 aplicacion1.getVoluntariado().remove(aplicacion1.getVoluntariado().get(x).getFecha().indexOf(String.valueOf(comboBox.getSelectedItem())));
+						 aplicacion1.getFechascolectas().remove(String.valueOf(comboBox.getSelectedItem()));
+							JOptionPane.showMessageDialog(null, "A sido eliminada de ese dia la actividad");
 
+						
+						
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
+
+						
+					}
+					
 					
 				}
+	
 				
-				else if(textField_1.getText().contentEquals("0")) {
-					JOptionPane.showMessageDialog(null, "Numero invalido");
-				}
-				
-				
-				else if(aplicacion1.getVoluntariado().size() >= Integer.parseInt(textField_1.getText())&& textField_1.getText() != "0" && textField_1.getText() !="" ) {
-					
-					aplicacion1.getVoluntariado().remove(Integer.parseInt(textField_1.getText())-1);
-					JOptionPane.showMessageDialog(null, "El voluntariado a sido eliminada");
-
-					
-				}
-				
-				else {
-					
-					JOptionPane.showMessageDialog(null, "El numero ingresado esta fuera del rango de voluntariados");
-
-
-					
-				}
 			}
 		});
 		
-		btnQuitarVoluntariado.setBounds(141, 239, 82, 23);
+		btnQuitarVoluntariado.setBounds(165, 253, 82, 23);
 		panel_3.add(btnQuitarVoluntariado);
 		
 		JLabel lblVoluntariadosInscritos = new JLabel("Voluntariados inscritos:");
@@ -153,34 +166,22 @@ public class OfrecerseVoluntario extends JFrame {
 		panel_3.add(lblVoluntariadosInscritos);
 		
 		textArea_1 = new TextArea();
-		textArea_1.setBounds(200, 41, 163, 187);
+		textArea_1.setBounds(200, 41, 176, 187);
 		panel_3.add(textArea_1);
 
-		JButton button = new JButton("Mostrar");
-		button.addActionListener(new ActionListener() {
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea_1.setText(String.valueOf(aplicacion1.getVoluntariado()));
 
 			}
 		});
-		button.setBounds(99, 165, 80, 23);
-		panel_3.add(button);
+		btnActualizar.setBounds(99, 165, 80, 23);
+		panel_3.add(btnActualizar);
 		
-		JLabel label_1 = new JLabel("Numero que Removera");
-		label_1.setBounds(10, 222, 171, 14);
-		panel_3.add(label_1);
-		
-		textField_1 = new JTextField();
-		textField_1.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if(c<'0'|| c>'9') e.consume();
-			}
-		});
-		textField_1.setColumns(10);
-		textField_1.setBounds(10, 242, 121, 20);
-		panel_3.add(textField_1);
+		JLabel lblFechaARemover = new JLabel("Fecha a remover");
+		lblFechaARemover.setBounds(10, 228, 171, 14);
+		panel_3.add(lblFechaARemover);
 		
 		JButton btnAtras = new JButton("Salir");
 		btnAtras.addActionListener(new ActionListener() {
@@ -190,8 +191,13 @@ public class OfrecerseVoluntario extends JFrame {
 				menu.setVisible(true);
 			}
 		});
-		btnAtras.setBounds(274, 253, 89, 23);
+		btnAtras.setBounds(299, 253, 89, 23);
 		panel_3.add(btnAtras);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		comboBox.setBounds(10, 254, 145, 20);
+		panel_3.add(comboBox);
 
 	}
 
