@@ -27,7 +27,7 @@ public class Persistencia {
 			pw = new PrintWriter(fichero);
 			String linea = "";
 			for(Usuario user:listaUsuarios) {
-				linea = "Usuario: " + user.getUserName() +"| " + user.getNombre() + "," + user.getContrasena() +","+user.getTelefono() +
+				linea = "Usuario: " + user.getUserName() +"," + user.getNombre() + "," + user.getContrasena() +","+user.getTelefono() +
 						"," +user.getDireccion()+","+user.getCorreo();
 				pw.println(linea);
 						}
@@ -53,7 +53,7 @@ public class Persistencia {
 			pw = new PrintWriter(fichero);
 			String linea = "";
 			for(Voluntariado vol: listaVoluntariado) {
-				linea = "Voluntariado: " + vol.getFecha() +"| "+ vol.getHora() + ","+vol.getLugar();
+				linea = "Voluntariado: " + vol.getFecha() +","+ vol.getHora() + ","+vol.getLugar();
 				pw.println(linea);
 						}
 		}catch (IOException e) {
@@ -77,7 +77,7 @@ public class Persistencia {
 			pw = new PrintWriter(fichero);
 			String linea = "";
 			for(Colecta col: listaColectas) {
-				linea = "Colecta: " + col.getFecha() +  ", "+col.getLugar();
+				linea = "Colecta: " + col.getFecha() +  ","+col.getLugar();
 				pw.println(linea);
 						}
 		}catch (IOException e) {
