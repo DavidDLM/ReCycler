@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  * @author  Grupo Re-Cycler
  * @date 23-08-2019
  * Universidad del Valle de Guatemala
- * Modelador de aplicaciÃ³n Re-cycler
+ * Modelador de aplicaciÃƒÂ³n Re-cycler
  */
 
 
@@ -35,7 +35,7 @@ public class Aplicacion{
     }
 
     /**
-     * MÃ©todo para obtener la lista de empresas
+     * MÃƒÂ©todo para obtener la lista de empresas
      * @return ArrayList con las empresas
      */
     public ArrayList<Empresa> getEmpresa(){
@@ -43,7 +43,7 @@ public class Aplicacion{
         }
     
     /**
-     * MÃ©todo para obtener objeto de usuario
+     * MÃƒÂ©todo para obtener objeto de usuario
      * @return Objeto de tipo usuario
      */  
     public Usuario getUsuario(){
@@ -51,7 +51,7 @@ public class Aplicacion{
         }
 
     /**
-     * MÃ©todo para obtener la lista de voluntariados
+     * MÃƒÂ©todo para obtener la lista de voluntariados
      * @return ArrayList con los voluntariados
      */
     public ArrayList<Voluntariado> getVoluntariado(){
@@ -59,7 +59,7 @@ public class Aplicacion{
         }
 
     /**
-     * MÃ©todo para obtener la lista de colectas
+     * MÃƒÂ©todo para obtener la lista de colectas
      * @return ArrayList con las colectas
      */
     public ArrayList<Colecta> getColecta(){
@@ -85,7 +85,7 @@ public class Aplicacion{
 
 
     /**
-     * MÃ©todo para agregar nueva empresa al ArrayList de empress.
+     * MÃƒÂ©todo para agregar nueva empresa al ArrayList de empress.
      * @param NombreEmpresa Nombre de la empresa de reciclaje que el usuario desea agregar
      * @param Correo Corereo de la empresa de reciclaje que el usuario desea agregar
      * @param Telefono Telefono de la empresa de reciclaje que el usuario desea agregar
@@ -111,8 +111,8 @@ public class Aplicacion{
     }
 
     /** 
-     * MÃ©todo para cambiar los datos de una empresa existente
-     * @param x Indice de la empresa de la cual se quiere cambiar la informaciÃ³n
+     * MÃƒÂ©todo para cambiar los datos de una empresa existente
+     * @param x Indice de la empresa de la cual se quiere cambiar la informaciÃƒÂ³n
      * @param NombreEmpresa Nombre de la empresa de reciclaje que el usuario desea modificar
      * @param Correo Corereo de la empresa de reciclaje que el usuario desea modificar
      * @param Telefono Telefono de la empresa de reciclaje que el usuario desea modificar
@@ -131,16 +131,16 @@ public class Aplicacion{
         Business.setTelefono(Telefono);
         Business.setDireccion(Direccion);
         /**
-         * Se sustituye los nuevos datos "Business" en la posiciÃ³n elegida del arraylist empresas
+         * Se sustituye los nuevos datos "Business" en la posiciÃƒÂ³n elegida del arraylist empresas
          */
         empresas.set(x,Business);
         
     }
 
 
-    /**MÃ©todo para setear los datos del usuario
+    /**MÃƒÂ©todo para setear los datos del usuario
      * @param Username Username del usuario 
-     * @param ContraseÃ±a ContraseÃ±a que el usuario desee
+     * @param ContraseÃƒÂ±a ContraseÃƒÂ±a que el usuario desee
      * @param Correo Correo que el usuario desea agregar
      * @param Telefono Telefono que el usuario desea agregar
      * @param Direccion Direccion que el usuario desea agregar
@@ -158,7 +158,7 @@ public class Aplicacion{
 
 
 
-    /** MÃ©todo para agregar nuevo voluntariado
+    /** MÃƒÂ©todo para agregar nuevo voluntariado
      * @param Lugar = Lugar del voluntaridao que el usuario desea agregar
      * @param Fecha = Fecha del voluntariado que el usuario desea agregar
      */
@@ -179,8 +179,8 @@ public class Aplicacion{
         voluntariados.add(Voluntariado);
     }
 
-    /** MÃ©todo para cambiar los datos de un voluntariado existente
-     * @param x nÃºmero de la posiciÃ³n del voluntariado que se desea cambiar la informaciÃ³n
+    /** MÃƒÂ©todo para cambiar los datos de un voluntariado existente
+     * @param x nÃƒÂºmero de la posiciÃƒÂ³n del voluntariado que se desea cambiar la informaciÃƒÂ³n
      * @param Lugar Lugar del voluntariado que el usuario desea modificar
      * @param Fecha Fecha del voluntariado que el usuario desea modificar
      */
@@ -195,7 +195,7 @@ public class Aplicacion{
         Business.setLugar(Lugar);
         Business.setFecha(Fecha);
         /**
-         * Se sustituye los nuevos datos "Business" en la posiciÃ³n x del arraylist voluntariados
+         * Se sustituye los nuevos datos "Business" en la posiciÃƒÂ³n x del arraylist voluntariados
          */
         voluntariados.set(x,Business);
     }
@@ -203,7 +203,7 @@ public class Aplicacion{
 
 
 
-    /** MÃ©todo para agregar nueva colecta
+    /** MÃƒÂ©todo para agregar nueva colecta
      * @param Material de reciclaje que el usuario desea agregar a la Colecta
      * @param Fecha Fecha de la colectan de reciclaje que el usuario desea agregar
      * @param Lugar Lugar de la colecta de reciclaje que el usuario desea agregar
@@ -226,11 +226,11 @@ public class Aplicacion{
     }
 
     /**
-     * Setter para colecta especÃ­fica
-     * @param x PosiciÃ³n (indice) de colecta a modificar
+     * Setter para colecta especÃƒÂ­fica
+     * @param x PosiciÃƒÂ³n (indice) de colecta a modificar
      * @param Material Material a recolectar en colecta
-     * @param Fecha Fecha en la que se darÃ¡ la colecta
-     * @param Lugar Lugar en el que se realizarÃ¡ la colecta
+     * @param Fecha Fecha en la que se darÃƒÂ¡ la colecta
+     * @param Lugar Lugar en el que se realizarÃƒÂ¡ la colecta
      */
     public void modificarColecta(int x, String Material, String Fecha, String Lugar){
         /**
@@ -244,7 +244,7 @@ public class Aplicacion{
         Business.setFecha(Fecha);
         Business.setLugar(Lugar);
         /**
-         * Se sustituye los nuevos datos "Business" en la posiciÃ³n x del arraylist colectas
+         * Se sustituye los nuevos datos "Business" en la posiciÃƒÂ³n x del arraylist colectas
          */
         colectas.set(x,Business);
     }
@@ -252,7 +252,7 @@ public class Aplicacion{
 
 
     /**
-     * MÃ©todo toString (concatena los atributos del objeto en un string)
+     * MÃƒÂ©todo toString (concatena los atributos del objeto en un string)
      * @return String con datos de empresas
      */
     public String toString(){
@@ -266,7 +266,7 @@ public class Aplicacion{
     }
     
     /**
-     * MÃ©todo para calcular ganancia  del material a reciclar
+     * MÃƒÂ©todo para calcular ganancia  del material a reciclar
      * @return ganancia
      */
     public static String getcalculadora (String material, float cantidad) {
@@ -291,7 +291,7 @@ public class Aplicacion{
     		
     	}
     /**
-     * MÃ©todo para validar numeros
+     * MÃƒÂ©todo para validar numeros
      * @return boolean
      */
     public boolean getvalidacion (String valor) {
@@ -307,7 +307,7 @@ public class Aplicacion{
     }
     
     /**
-     * MÃ©todo para obtener informacion de empresas de reciclaje
+     * MÃƒÂ©todo para obtener informacion de empresas de reciclaje
      * @return String
      */
     public String getinformacionempresas() {
@@ -322,24 +322,24 @@ public class Aplicacion{
     			"Horario:\n" + 
     			"7:00 a.m. a 5:00 p.m.\n" + 
     			"\n" + 
-    			"Ubicación\n" + 
+    			"UbicaciÃ³n\n" + 
     			"Avenida Petapa 42-21 zona 12 \n" + 
     			"\n" + 
-    			"**Red Ecológica**\n" + 
+    			"**Red EcolÃ³gica**\n" + 
     			"\n" + 
     			"Caracteristica principal:\n" + 
     			"Recicla tus hojas usadas\n" + 
     			"\n" + 
-    			"Teléfono\n" + 
+    			"TelÃ©fono\n" + 
     			"24271360\n" + 
     			"\n" + 
-    			"Ubicación\n" + 
-    			"Kilómetro 8 Carretera al Atlantico, Zona 18 \n" + 
+    			"UbicaciÃ³n\n" + 
+    			"KilÃ³metro 8 Carretera al Atlantico, Zona 18 \n" + 
     			"\n" + 
     			"**Recicladora La Joya**\n" + 
     			"\n" + 
     			"Caracteristica principal:\n" + 
-    			"Reciben papel, cartón, cartulina, latas, plastico\n" + 
+    			"Reciben papel, cartÃ³n, cartulina, latas, plastico\n" + 
     			"\n" + 
     			"Telefono:\n" + 
     			"24481286|24482178\n" + 
@@ -350,7 +350,7 @@ public class Aplicacion{
     	
     }
     /**
-     * MÃ©todo para obtener informacion de los creadores
+     * MÃƒÂ©todo para obtener informacion de los creadores
      * @return String
      */
     public String getinformacionsobrenosotros() {
@@ -359,7 +359,7 @@ public class Aplicacion{
     			"trabajamos en un proyecto para \n" + 
     			"asi poder resolver alguna problematica \n" + 
     			"del pais, al analizar que es\n" + 
-    			"lo que afectaba mas al país \n" + 
+    			"lo que afectaba mas al paÃ­s \n" + 
     			"determinamos que nadie \n" + 
     			"reciclaba, por lo tanto\n" + 
     			" decidimos realizar este programa\n" + 
@@ -367,25 +367,25 @@ public class Aplicacion{
     			"reciclar.");
 }
     /**
-     * MÃ©todo para obtener las preguntas mas frecuentes
+     * MÃƒÂ©todo para obtener las preguntas mas frecuentes
      * @return String
      */
     public String getpreguntasfrecuentes() {
     	return("======PREGUNTAS FRECUENTES======\n" + 
     			"\n" + 
-    			"Pregunta: ¿Hay otros idiomas disponibles?\n" + 
+    			"Pregunta: Â¿Hay otros idiomas disponibles?\n" + 
     			"Respuesta: No por el momento, ya que \n" + 
-    			"en el país el idioma más popular es\n" + 
-    			"el español, no consideramos necesario\n" + 
+    			"en el paÃ­s el idioma mÃ¡s popular es\n" + 
+    			"el espaÃ±ol, no consideramos necesario\n" + 
     			"agregar otro idioma mientras que no\n" + 
-    			"nos expandamos a otro país\n" + 
+    			"nos expandamos a otro paÃ­s\n" + 
     			"\n" + 
-    			"Pregunta: ¿Porqué debería reciclar?\n" + 
-    			"Respuesta: Porque el la contaminación\n" + 
+    			"Pregunta: Â¿PorquÃ© deberÃ­a reciclar?\n" + 
+    			"Respuesta: Porque el la contaminaciÃ³n\n" + 
     			"mata al planeta y reciclando puedes \n" + 
     			"reducirla.\n" + 
     			"\n" + 
-    			"Pregunta: ¿Cómo puedo ayudar más?\n" + 
+    			"Pregunta: Â¿CÃ³mo puedo ayudar mÃ¡s?\n" + 
     			"Respuesta: Trata de usar productos \n" + 
     			"biodegradables.");
     	
@@ -456,7 +456,7 @@ public class Aplicacion{
 	    public static boolean EmailCorrecto(String email) {
        
         boolean valido = false;
-       
+        
         Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)(\\.[A-Za-z]{2,})$");
    
         Matcher mEmail = patronEmail.matcher(email.toLowerCase());
@@ -479,7 +479,21 @@ public class Aplicacion{
     return false;
     }
     }
+    
+    public boolean VerificarEmail(String correo) {
+    	boolean validar = false;
+    	if(correo.contains("@")) {
+    		validar = true;
+    	}
+    	else {
+    		validar = false;
+    	}
+		return validar;
+    	
+    }
 
 
 
 }
+
+
