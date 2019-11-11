@@ -491,6 +491,17 @@ public class Aplicacion{
 		return validar;
     	
     }
+	
+	 public boolean ValidarContrasena(String contrasena) {
+    	boolean validar = false;
+    	if(contrasena.length() >= 6) {
+    		validar = true;
+    	}
+    	else {
+    		validar = false;
+    	}
+		return validar;
+    }
 
 
 
