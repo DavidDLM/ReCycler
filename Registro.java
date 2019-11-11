@@ -76,21 +76,26 @@ public class Registro extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(op.VerificarEmail(tfCorreo.getText())== true) {
-					if (String.valueOf(pfContrasena.getText()).equals(String.valueOf(pfContrasenaV.getText()))){
-						JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
-						op.IngresarUsuario(String.valueOf(tfUsuario.getText()));
-						op.IngresarContrasena(String.valueOf(pfContrasena.getText()));;
-						UsuarioContrasena ventanaU = new UsuarioContrasena();
-						ventanaU.frame.setVisible(true);
-						Registro.this.setVisible(false);
-						
-					}else {
-						JOptionPane.showMessageDialog(null,"Ingrese la contrasena correctamente");
+					if(op.ValidarContrasena(pfContrasena.getText())) {
+						if (String.valueOf(pfContrasena.getText()).equals(String.valueOf(pfContrasenaV.getText()))){
+							JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+							op.IngresarUsuario(String.valueOf(tfUsuario.getText()));
+							op.IngresarContrasena(String.valueOf(pfContrasena.getText()));;
+							UsuarioContrasena ventanaU = new UsuarioContrasena();
+							ventanaU.frame.setVisible(true);
+							Registro.this.setVisible(false);
+							
+						}else {
+							JOptionPane.showMessageDialog(null,"Ingrese la contrasena correctamente");
+						}
+					}
+					else {
+						JOptionPane.showMessageDialog(null,"Ingrese una contrasena de al menos 6 caracteres");
 					}
 				}
-				else {
-					JOptionPane.showMessageDialog(null,"Ingrese el correo correctamente");
-				}
+					else {
+						JOptionPane.showMessageDialog(null,"Ingrese el correo correctamente");
+					}
 			}
 		});
 		btnAceptar.setBounds(182, 260, 89, 23);
