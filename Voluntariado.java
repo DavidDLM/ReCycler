@@ -23,7 +23,7 @@ public class Voluntariado implements Serializable {
 
 
     /**
-     * Función para cambiar Lugar de la Voluntariado
+     * FunciÃ³n para cambiar Lugar de la Voluntariado
      * @param Lugar Cadena con Lugar de la Voluntariado
      */
     public void setLugar(String Lugar){
@@ -55,7 +55,7 @@ public class Voluntariado implements Serializable {
 
 
     /**
-     * Función para cambiar Fecha de la Voluntariado
+     * FunciÃ³n para cambiar Fecha de la Voluntariado
      * @param Fecha Cadena con Fecha de la Voluntariado
      */
     public void setFecha(String Fecha){
@@ -75,8 +75,9 @@ public class Voluntariado implements Serializable {
      * @return Devuelve datos de voluntariado
      */
     public String toString(){
-        return "Lugar : " + Lugar + "  "
-            + "Fecha : " + Fecha + "  "
+        return "Lugar : " + Lugar + "\n"
+            + "Fecha : " + Fecha + "\n"
             + "Hora : " + Hora +"\n";
     }
     }
+
