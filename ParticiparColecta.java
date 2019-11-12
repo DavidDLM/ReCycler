@@ -42,6 +42,7 @@ public class ParticiparColecta extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 327);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GREEN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -159,7 +160,7 @@ public class ParticiparColecta extends JFrame {
 		pnlColecta.add(btnQuitarColecta);
 		
 		textArea_2 = new TextArea();
-		textArea_2.setBounds(225, 24, 171, 187);
+		textArea_2.setBounds(225, 40, 171, 171);
 		pnlColecta.add(textArea_2);
 		
 		JLabel lblNewLabel = new JLabel("Fecha a remover");
@@ -174,7 +175,7 @@ public class ParticiparColecta extends JFrame {
 
 			}
 		});
-		btnMostrar.setBounds(100, 167, 80, 23);
+		btnMostrar.setBounds(100, 167, 102, 23);
 		pnlColecta.add(btnMostrar);
 		
 		JButton btnSalir = new JButton("Salir");
@@ -195,6 +196,11 @@ public class ParticiparColecta extends JFrame {
 		comboBox.setBounds(10, 238, 145, 20);
 		pnlColecta.add(comboBox);
 		
+		JLabel lblNewLabel_1 = new JLabel("Colectas inscritas: ");
+		lblNewLabel_1.setBounds(225, 24, 110, 14);
+		pnlColecta.add(lblNewLabel_1);
+		
 		
 	}
 }
+
