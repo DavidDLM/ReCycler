@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+iimport java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.TextArea;
@@ -145,11 +145,11 @@ public class OfrecerseVoluntario extends JFrame {
 						
 						
 					}
-					else {
-						JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
+				//	else {
+					//	JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
 
 						
-					}
+					//}
 					
 					
 				}
@@ -202,5 +202,3 @@ public class OfrecerseVoluntario extends JFrame {
 	}
 
 }
-
-
