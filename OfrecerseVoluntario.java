@@ -166,7 +166,7 @@ public class OfrecerseVoluntario extends JFrame {
 		panel_3.add(lblVoluntariadosInscritos);
 		
 		textArea_1 = new TextArea();
-		textArea_1.setBounds(200, 41, 176, 187);
+		textArea_1.setBounds(210, 41, 176, 187);
 		panel_3.add(textArea_1);
 
 		JButton btnActualizar = new JButton("Actualizar");
@@ -176,7 +176,7 @@ public class OfrecerseVoluntario extends JFrame {
 
 			}
 		});
-		btnActualizar.setBounds(99, 165, 80, 23);
+		btnActualizar.setBounds(99, 165, 105, 23);
 		panel_3.add(btnActualizar);
 		
 		JLabel lblFechaARemover = new JLabel("Fecha a remover");
@@ -202,4 +202,5 @@ public class OfrecerseVoluntario extends JFrame {
 	}
 
 }
+
 
