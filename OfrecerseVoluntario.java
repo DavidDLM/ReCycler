@@ -145,11 +145,11 @@ public class OfrecerseVoluntario extends JFrame {
 						
 						
 					}
-					else {
-						JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
-
-						
-					}
+	//				else {
+	//					JOptionPane.showMessageDialog(null, "No se encuentra registrado a ninguna actividad ese dia");
+//
+	//					
+//					}
 					
 					
 				}
