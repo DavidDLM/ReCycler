@@ -73,7 +73,7 @@ public class OfrecerseVoluntario extends JFrame {
 		panel_3.add(lblFecha);
 
 		JComboBox cbFechaVoluntariado = new JComboBox();
-		cbFechaVoluntariado.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		cbFechaVoluntariado.setModel(new DefaultComboBoxModel(new String[] {"29 de Octubre", "4 de Noviembre", "17 de Noviembre", "30 de Noviembre", "13 de Diciembre"}));
 		cbFechaVoluntariado.setBounds(10, 87, 171, 20);
 		panel_3.add(cbFechaVoluntariado);
 		
@@ -195,7 +195,7 @@ public class OfrecerseVoluntario extends JFrame {
 		panel_3.add(btnAtras);
 		
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Octubre", "4 de Noviembre", "17 de Noviembre", "30 de Noviembre", "13 de Diciembre"}));
 		comboBox.setBounds(10, 254, 145, 20);
 		panel_3.add(comboBox);
 
