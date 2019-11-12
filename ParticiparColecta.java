@@ -68,7 +68,7 @@ public class ParticiparColecta extends JFrame {
 		pnlColecta.add(lblNewLabel_4);
 		
 		JComboBox cbFechaColecta = new JComboBox();
-		cbFechaColecta.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		cbFechaColecta.setModel(new DefaultComboBoxModel(new String[] {"29 de Octubre", "4 de Noviembre", "17 de Noviembre", "30 de Noviembre", "13 de Diciembre"}));
 		cbFechaColecta.setBounds(10, 88, 171, 20);
 		pnlColecta.add(cbFechaColecta);
 		
@@ -192,7 +192,7 @@ public class ParticiparColecta extends JFrame {
 		pnlColecta.add(btnSalir);
 		
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Septiembre", "4 de Octubre", "17 de Octubre", "30 de Octubre", "13 de Noviembre"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"29 de Octubre", "4 de Noviembre", "17 de Noviembre", "30 de Noviembre", "13 de Diciembre"}));
 		comboBox.setBounds(10, 238, 145, 20);
 		pnlColecta.add(comboBox);
 		
