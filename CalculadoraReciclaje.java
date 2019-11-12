@@ -50,7 +50,7 @@ public class CalculadoraReciclaje extends JFrame {
 		pnlCalculadora.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Material:");
-		lblNewLabel_1.setBounds(10, 21, 42, 14);
+		lblNewLabel_1.setBounds(10, 21, 61, 14);
 		pnlCalculadora.add(lblNewLabel_1);
 
 		JComboBox cbMaterialCalculadora = new JComboBox();
@@ -63,7 +63,8 @@ public class CalculadoraReciclaje extends JFrame {
 		pnlCalculadora.add(lblNewLabel_2);
 		
 		JTextPane txtPesoCalculadora = new JTextPane();
-		txtPesoCalculadora.setBackground(UIManager.getColor("Button.light"));
+		txtPesoCalculadora.setForeground(Color.BLACK);
+		txtPesoCalculadora.setBackground(Color.LIGHT_GRAY);
 		txtPesoCalculadora.setBounds(10, 88, 171, 20);
 		pnlCalculadora.add(txtPesoCalculadora);
 		
@@ -115,3 +116,4 @@ public class CalculadoraReciclaje extends JFrame {
 	}
 	
 }
+
